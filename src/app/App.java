@@ -13,8 +13,8 @@ public class App {
         Scanner ler = new Scanner(System.in);
 
         ListaDeLivros l1 = new ListaDeLivros();
-        Livro livro = null;
-        int numeroLivro = 0;
+        Livro livro;
+        int numeroLivro;
         String titulo, autor, ano;
         int op;
 
@@ -80,11 +80,10 @@ public class App {
                     } else {
                         System.out.println("Digite o número do livro que deseja devolver:");
                         int numero = ler.nextInt();
-                        l1.buscarLivro(numero);
-                        if (l1.buscarLivro(numero)) {
-                            System.out.println("Livro Devolvido:" + "\n" + l1.devolverLivro(numero));
+                        if(l1.devolverLivro(numero) != null) {
+                            System.out.println("Livro Devolvido!");
                         } else {
-                            System.out.println("O livro pesquisado não foi encontrado.");
+                            System.out.println("O livro pesquisado não está emprestado, verifique o número e tente novamente.");
                         }
                     }
                     break;

@@ -46,21 +46,20 @@ public class ListaDeLivros {
     }
 
     public Livro devolverLivro(int numero){
-        Livro retorno = null;
+
         for (Livro retirada : lista){
-            if (retirada.getNumero() == numero){
+            if (retirada.getNumero() == numero && retirada.getStatus().equals(StatusEnum.INDISPONIVEL)){
                 retirada.setNomeVizinho("");
                 retirada.setStatus(StatusEnum.DISPONIVEL);
-                retorno = retirada;
+                Livro retorno = retirada;
+                return retorno;
             }
         }
-        return retorno;
+        return null;
     }
 
     @Override
     public String toString() {
-        return "{" +
-                "lista=" + lista +
-                '}';
+        return "{" + lista +"}";
     }
 }
